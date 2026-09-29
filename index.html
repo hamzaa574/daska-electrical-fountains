@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daska Electrical Fountains - Commercial Fountains & Water Engineering</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Modern Industrial Emerald Theme */
+        
+         :root {
+            --bg-dark: #040d0a;
+            --bg-card: rgba(12, 28, 22, 0.85);
+            --bg-card-hover: rgba(18, 41, 32, 0.95);
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --accent-glow: #34d399;
+            --gold-accent: #f59e0b;
+            --whatsapp-green: #25d366;
+            --text-main: #f0fdf4;
+            --text-muted: #94a3b8;
+            --border: rgba(16, 185, 129, 0.25);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            /* Social Official Colors */
+            --fb-color: #1877F2;
+            --yt-color: #FF0000;
+            --tt-color: #000000;
+            --ig-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --wa-color: #25D366;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        /* Animated Ambient Glowing Orbs */
+        
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            pointer-events: none;
+            animation: orbFloat 14s infinite alternate ease-in-out;
+        }
+        
+        .orb-1 {
+            top: -100px;
+            left: -100px;
+            width: 550px;
+            height: 550px;
+            background: rgba(16, 185, 129, 0.18);
+        }
+        
+        .orb-2 {
+            bottom: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: rgba(245, 158, 11, 0.12);
+            animation-delay: -7s;
+        }
+        
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                transform: translate(60px, 90px) scale(1.15);
+            }
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        /* Top Bar */
+        
+        .top-bar {
+            background-color: #020705;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-muted);
+        }
+        
+        .top-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .top-info span {
+            margin-right: 20px;
+        }
+        
+        .top-info i,
+        .top-phone i {
+            color: var(--primary);
+            margin-right: 6px;
+        }
+        
+        .top-phone a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 700;
+        }
+        /* Navbar */
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(4, 13, 10, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+        }
+        
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .brand-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.6rem;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+        
+        .brand-name {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+        
+        .brand-sub {
+            font-size: 0.65rem;
+            color: var(--accent-glow);
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: block;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .btn-whatsapp-nav {
+            background-color: var(--wa-color);
+            color: #fff !important;
+            font-weight: 700 !important;
+            padding: 10px 22px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+            text-decoration: none;
+            transition: 0.3s transform, 0.3s box-shadow;
+        }
+        
+        .btn-whatsapp-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+        }
+        /* Hero Section */
+        
+        .hero {
+            padding: 90px 0 60px 0;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 30px;
+            color: var(--accent-glow);
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--accent-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+        
+        .hero-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-call {
+            background: var(--primary);
+            color: #fff;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-call:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        /* Large Prominent Social Icons */
+        
+        .social-box {
+            margin-top: 35px;
+        }
+        
+        .social-box h4 {
+            font-size: 1.1rem;
+            margin-bottom: 18px;
+            color: #fff;
+            font-weight: 700;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon-lg {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: #ffffff;
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .social-icon-lg.fb {
+            background-color: var(--fb-color);
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
+        }
+        
+        .social-icon-lg.yt {
+            background-color: var(--yt-color);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+        }
+        
+        .social-icon-lg.tt {
+            background-color: #000000;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.15);
+        }
+        
+        .social-icon-lg.ig {
+            background: var(--ig-gradient);
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
+        }
+        
+        .social-icon-lg.wa {
+            background-color: var(--wa-color);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .social-icon-lg:hover {
+            transform: translateY(-6px) scale(1.1);
+            filter: brightness(1.15);
+        }
+        /* Section Styling */
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 8px;
+        }
+        /* Grid */
+        
+        .grid-2x2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .card-division {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 35px 28px;
+            border-radius: 20px;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-division:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+        
+        .card-division .div-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-glow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+        }
+        
+        .card-division h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        
+        .card-division p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        /* Contact Section */
+        
+        .contact-info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        
+        .c-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 22px;
+        }
+        
+        .c-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        
+        .c-item div span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .c-item div strong {
+            font-size: 1.05rem;
+            color: var(--text-main);
+        }
+        /* Footer */
+        
+        footer {
+            background: #020604;
+            border-top: 1px solid var(--glass-border);
+            padding: 30px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .top-flex {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .social-icon-lg {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-flex">
+            <div class="top-info">
+                <span><i class="fa-solid fa-location-dot"></i> 128/B Railway Road, Chowk Dalgiran, Lahore</span>
+                <span><i class="fa-solid fa-clock"></i> Mon - Sat: 9:00 AM - 7:00 PM</span>
+            </div>
+            <div class="top-phone">
+                <a href="tel:03233330444"><i class="fa-solid fa-phone"></i> 0323-3330444</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-flex">
+            <a href="#home" class="brand-logo">
+                <div class="brand-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div>
+                    <span class="brand-name">DASKA ELECTRICAL FOUNTAINS</span>
+                    <span class="brand-sub">TUBEWELL, TURBINES & INDUSTRIES</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#divisions" class="nav-link">Divisions</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="https://wa.me/923233330444" target="_blank" class="btn-whatsapp-nav">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <span class="badge"><i class="fa-solid fa-shield-halved"></i> Engineering & Fountain Specialists</span>
+                    <h1>Designing Aquatic Excellence with <span>Daska Electrical Fountains</span></h1>
+                    <p>Daska Electrical Fountains is Pakistan's premier group specializing in commercial musical dancing water fountains, RGB LED fountain lighting, heavy-duty tubewells, vertical turbines, and industrial water machinery.</p>
+
+                    <div class="hero-actions">
+                        <a href="tel:03233330444" class="btn-call"><i class="fa-solid fa-phone"></i> Call Direct: 0323-3330444</a>
+                    </div>
+
+                    <!-- Prominent Social Icons -->
+                    <div class="social-box">
+                        <h4>Connect On Our Official Pages:</h4>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=100090132729630" target="_blank" class="social-icon-lg fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://www.youtube.com/@daskatubewell" target="_blank" class="social-icon-lg yt" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://www.tiktok.com/@daskatubewell" target="_blank" class="social-icon-lg tt" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                            <a href="https://www.instagram.com/daskaind/" target="_blank" class="social-icon-lg ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="https://wa.me/923233330444" target="_blank" class="social-icon-lg wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=800&q=80" alt="Daska Electrical Fountains Project" style="width: 100%; border-radius: 20px; border: 1px solid var(--border);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Divisions Section -->
+    <section id="divisions" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Engineering Divisions</h2>
+                <p>Specialized water engineering solutions under Daska Electrical Fountains</p>
+            </div>
+
+            <div class="grid-2x2">
+                <div class="card-division">
+                    <div class="div-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Daska Electrical Fountains</h3>
+                    <p>Commercial musical dancing water fountains, underwater RGB LED lighting systems, brass/stainless nozzles, and automated control setups.</p>
+                </div>
+
+                <div class="card-division">
+                    <div class="div-icon"><i class="fa-solid fa-faucet"></i></div>
+                    <h3>Daska Tubewell</h3>
+                    <p>Deep borehole water systems, heavy agricultural casing pipes, high-pressure borehole filters, and complete farm irrigation setups.</p>
+                </div>
+
+                <div class="card-division">
+                    <div class="div-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h3>Daska Turbines</h3>
+                    <p>High-head vertical line shaft turbine pumps and deep water-cooled submersible motors engineered for continuous heavy discharge.</p>
+                </div>
+
+                <div class="card-division">
+                    <div class="div-icon"><i class="fa-solid fa-building-user"></i></div>
+                    <h3>Daska Tubewell Industries</h3>
+                    <p>Heavy industrial centrifugal water pumps, factory water distribution installations, and high-capacity electric motor drives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section" style="background: rgba(2, 7, 5, 0.6);">
+        <div class="container grid-2x2" style="align-items: center;">
+            <div>
+                <div class="section-header" style="text-align: left; margin-bottom: 25px;">
+                    <h2>About Daska Electrical Fountains</h2>
+                </div>
+                <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 25px;">
+                    Daska Electrical Fountains is a leading manufacturer of architectural fountain engineering, aquatic displays, tubewell systems, and industrial water machinery. Based in Lahore, we deliver high-quality fountain projects and water setups nationwide.
+                </p>
+                <a href="https://wa.me/923233330444" target="_blank" class="btn-whatsapp-nav">
+                    <i class="fa-brands fa-whatsapp"></i> Chat Direct On WhatsApp
+                </a>
+            </div>
+
+            <div>
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Fountain Machinery" style="width: 100%; border-radius: 20px; border: 1px solid var(--border);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact & Showroom Location</h2>
+                <p>Get in touch for fountain consultations or equipment inquiries</p>
+            </div>
+
+            <div class="contact-info-card" style="max-width: 800px; margin: 0 auto;">
+                <div class="c-item">
+                    <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div>
+                        <span>Showroom Address</span>
+                        <strong>128/B Railway Road, Chowk Dalgiran, Lahore</strong>
+                    </div>
+                </div>
+
+                <div class="c-item">
+                    <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div>
+                        <span>Direct Phone</span>
+                        <strong>0323-3330444</strong>
+                    </div>
+                </div>
+
+                <div class="c-item">
+                    <div class="c-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div>
+                        <span>Official WhatsApp</span>
+                        <strong>0323-3330444</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Daska Electrical Fountains. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

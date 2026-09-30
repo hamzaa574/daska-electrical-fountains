@@ -5,17 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daska Electrical Group of Industries</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+         :root {
+            --primary: #0b3c5d;
+            --secondary: #328cc1;
+            --accent: #d9b310;
+            --dark: #1d2731;
+            --light: #f4f7f6;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
         }
         
         body {
             color: #333;
+            background-color: #fff;
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Top Bar & Social Links */
+        
+        .top-bar {
+            background-color: var(--dark);
+            color: #fff;
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+        
+        .top-info span {
+            margin-right: 15px;
+        }
+        
+        .top-info i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            margin-left: 12px;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary);
+            transform: translateY(-2px);
         }
         /* Navbar */
         
@@ -24,41 +70,61 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 5%;
-            background-color: #0b3c5d;
+            background-color: var(--primary);
             color: white;
             position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: bold;
-            font-size: 1.2rem;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.5px;
         }
         
         .logo img {
-            height: 40px;
+            height: 45px;
+            border-radius: 4px;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 25px;
         }
         
         .nav-links a {
             color: white;
             text-decoration: none;
             font-weight: 500;
+            position: relative;
+            padding: 5px 0;
         }
-        /* Hero Section */
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        /* Hero Section & Animations */
         
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero-bg.jpg') center/cover no-repeat;
-            height: 70vh;
+            background: linear-gradient(rgba(11, 60, 93, 0.75), rgba(29, 39, 49, 0.85)), url('images/hero-bg.jpg') center/cover no-repeat;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -67,28 +133,46 @@
             padding: 0 20px;
         }
         
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease-out;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+        
+        .hero-buttons {
+            animation: fadeInUp 1s ease-out 0.6s backwards;
         }
         
         .btn {
-            padding: 10px 25px;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 5px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 8px;
             display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .primary-btn {
-            background-color: #328cc1;
+            background-color: var(--secondary);
             color: white;
+            border: 2px solid var(--secondary);
+        }
+        
+        .primary-btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
         }
         
         .secondary-btn {
@@ -96,146 +180,311 @@
             color: white;
             border: 2px solid white;
         }
-        /* Common Section Layout */
+        
+        .secondary-btn:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        /* Layout Sections */
         
         .section {
-            padding: 60px 8%;
+            padding: 80px 8%;
         }
         
         .bg-light {
-            background-color: #f9f9f9;
+            background-color: var(--light);
         }
         
-        .section h2 {
+        .section-title {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #0b3c5d;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            position: relative;
         }
-        /* About Us */
+        
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 45px;
+            font-size: 1.05rem;
+        }
+        /* About Us Cards */
         
         .about-container {
             display: flex;
-            gap: 40px;
+            gap: 50px;
             align-items: center;
             flex-wrap: wrap;
         }
         
         .about-text {
             flex: 1;
+            min-width: 300px;
         }
         
         .about-text h3 {
+            font-size: 1.8rem;
             margin-bottom: 15px;
-            color: #1d2731;
+            color: var(--dark);
         }
         
         .about-img {
             flex: 1;
+            min-width: 300px;
+            position: relative;
         }
         
         .about-img img {
             width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease;
         }
-        /* Products Grid */
+        
+        .about-img img:hover {
+            transform: scale(1.02);
+        }
+        /* Product Grid & Cards Hover Animation */
         
         .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover img {
+            transform: scale(1.03);
+        }
+        
+        .product-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .product-card p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        /* Services Grid */
+        
+        .services-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
         
-        .product-card {
+        .service-item {
             background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary);
+            transition: transform 0.3s ease;
         }
         
-        .product-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 5px;
+        .service-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .service-item i {
+            font-size: 2rem;
+            color: var(--secondary);
             margin-bottom: 15px;
         }
         
-        .product-card h3 {
-            font-size: 1.2rem;
-            color: #0b3c5d;
+        .service-item h3 {
             margin-bottom: 10px;
-        }
-        /* Services */
-        
-        .services-list {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        
-        .service-item {
-            flex: 1;
-            min-width: 250px;
-            background: #eef2f5;
-            padding: 20px;
-            border-left: 4px solid #328cc1;
-            border-radius: 4px;
+            color: var(--dark);
         }
         /* Clients Section */
         
-        .subtitle {
-            text-align: center;
-            margin-top: -20px;
-            margin-bottom: 30px;
-            color: #666;
-        }
-        
         .clients-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
         }
         
         .client-category {
             background: white;
-            padding: 20px;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .client-category i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 12px;
         }
         
         .client-category h4 {
-            color: #328cc1;
+            color: var(--secondary);
             margin-bottom: 10px;
         }
         /* Footer */
         
         footer {
-            background-color: #1d2731;
+            background-color: var(--dark);
             color: white;
-            padding: 40px 8% 20px 8%;
+            padding: 60px 8% 20px 8%;
         }
         
-        .footer-info p {
-            margin-bottom: 8px;
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .footer-col p,
+        .footer-col li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .footer-socials a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-socials a:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
         }
         
         .footer-bottom {
             text-align: center;
-            margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #333;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
-            color: #aaa;
+            color: #888;
+        }
+        /* Animations */
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Mobile Responsive */
+        
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Header / Navigation -->
+    <!-- Top Contact Bar & Social Links -->
+    <div class="top-bar">
+        <div class="top-info">
+            <span><i class="fa-solid fa-phone"></i> +92 323 3330444</span>
+            <span><i class="fa-solid fa-envelope"></i> hello@daskatubewell.com</span>
+        </div>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://tiktok.com" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://wa.me/923233330444" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
     <header>
         <nav class="navbar">
             <div class="logo">
@@ -244,7 +493,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#clients">Clients</a></li>
@@ -256,101 +505,86 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Advanced Water Systems, Pumps & Irrigation Solutions Since 1965</h1>
-            <p>Leading Manufacturer, Importer & Supplier of Industrial, Agricultural, and Commercial Water Management Solutions.</p>
+            <h1>Advanced Water Systems & Pump Solutions</h1>
+            <p>Leading Manufacturer, Importer & Supplier of Industrial, Agricultural, and Commercial Water Management Solutions Since 1965.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn primary-btn">Get a Free Quote</a>
-                <a href="#products" class="btn secondary-btn">View Products</a>
+                <a href="#contact" class="btn primary-btn">Get Free Quote</a>
+                <a href="#products" class="btn secondary-btn">Explore Products</a>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
+    <!-- About Section -->
     <section id="about" class="section">
-        <h2>About Us</h2>
+        <h2 class="section-title">About Our Legacy</h2>
+        <p class="section-subtitle">Excellence and precision in water management systems for decades</p>
         <div class="about-container">
             <div class="about-text">
                 <h3>Established in 1965</h3>
                 <p>Founded by Mir Muhammad Akram, Daska Group has maintained an "A-Class" reputation for honesty, dynamic effort, and superlative manufacturing standards. Managed by Mir Muhammad Mudassar, we deal in high-quality pumps, boring equipment,
                     and water systems.</p>
+                <br>
                 <p><strong>Global Imports:</strong> Germany, Italy, France, Australia, Canada, Mexico, Sweden, and China.</p>
                 <p><strong>Quality Assurance:</strong> ISO 9001 quality control standards with advanced test beds and custom tooling for precision manufacturing.</p>
             </div>
             <div class="about-img">
-                <img src="images/about-us.jpg" alt="About Daska Group">
+                <img src="images/about-us.jpg" alt="Daska Machinery Industry">
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products Grid -->
     <section id="products" class="section bg-light">
-        <h2>Our Products</h2>
+        <h2 class="section-title">Our Featured Products</h2>
+        <p class="section-subtitle">Engineered for durability and high performance</p>
         <div class="product-grid">
 
             <div class="product-card">
                 <img src="images/vertical-turbine-pump.jpg" alt="Vertical Turbine Pump">
                 <h3>Vertical Turbine Pumps</h3>
-                <p>Long cylindrical design, easy maintenance, and compact footprint. Ideal for industrial water treatment, power plants, irrigation, and mine dewatering.</p>
+                <p>Long cylindrical design, easy maintenance, and compact footprint. Ideal for industrial water treatment, power plants, and irrigation.</p>
             </div>
 
             <div class="product-card">
-                <img src="images/submersible-pump.jpg" alt="Submersible & Mud Pump">
+                <img src="images/submersible-pump.jpg" alt="Submersible Pump">
                 <h3>Submersible & Mud Pumps</h3>
-                <p>Heavy-duty wastewater/solids handling pumps (2" to 6" sizes) with a 1-year warranty. Includes screw and multilevel submersible pumps.</p>
+                <p>Heavy-duty wastewater/solids handling pumps (2" to 6" sizes) with a 1-year warranty. Includes screw and multilevel pumps.</p>
             </div>
 
             <div class="product-card">
-                <img src="images/multistage-pump.jpg" alt="Multi-Stage & Centrifugal Pump">
-                <h3>Multi-Stage & Centrifugal Pumps</h3>
+                <img src="images/multistage-pump.jpg" alt="Centrifugal Pump">
+                <h3>Multi-Stage Centrifugal Pumps</h3>
                 <p>High-head CR/CM series centrifugal pumps, horizontal multistage pumps, and BMS high-pressure booster modules.</p>
             </div>
 
             <div class="product-card">
                 <img src="images/ro-plant.jpg" alt="RO Plant">
                 <h3>Reverse Osmosis (R.O.) Plants</h3>
-                <p>Custom-designed R.O. plants for sea water, well water, factory wastewater, and municipal water purification. Serving mineral water companies across Pakistan.</p>
+                <p>Custom-designed R.O. plants for sea water, well water, factory wastewater, and municipal water purification across Pakistan.</p>
             </div>
 
             <div class="product-card">
-                <img src="images/drip-irrigation.jpg" alt="Drip Irrigation System">
+                <img src="images/drip-irrigation.jpg" alt="Drip Irrigation">
                 <h3>Drip Irrigation Systems</h3>
                 <p>Micro-irrigation networks (valves, pipes, emitters) to save water and deliver nutrients directly to plant roots.</p>
             </div>
 
             <div class="product-card">
-                <img src="images/rain-gun.jpg" alt="Rain Gun Sprinkler">
+                <img src="images/rain-gun.jpg" alt="Rain Gun">
                 <h3>Rain Guns & Impact Sprinklers</h3>
-                <p>Corrosion-resistant plastic impact sprinklers and high-volume rain guns for efficient field coverage.</p>
+                <p>Corrosion-resistant plastic impact sprinklers and high-volume rain guns for efficient agricultural field coverage.</p>
             </div>
 
             <div class="product-card">
-                <img src="images/dairy-farm-sprinkler.jpg" alt="Dairy Farm Showering">
-                <h3>Dairy Farm Showering Systems</h3>
-                <p>Climate & temperature control sprinkler systems for dairy cows to prevent heat stress and increase productivity.</p>
-            </div>
-
-            <div class="product-card">
-                <img src="images/fountain.jpg" alt="Fountains & Waterfalls">
-                <h3>Fountains & Water Features</h3>
+                <img src="images/fountain.jpg" alt="Fountain Light">
+                <h3>Fountains & Underwater LEDs</h3>
                 <p>Decorative fountains, artificial waterfalls, custom nozzles, and waterproof underwater LED lighting systems.</p>
             </div>
 
             <div class="product-card">
-                <img src="images/mist-system.jpg" alt="High Pressure Mist System">
-                <h3>High-Pressure Mist Systems</h3>
-                <p>1500 PSI outdoor cooling systems that reduce summer heat by up to 30 degrees for commercial and residential spaces.</p>
-            </div>
-
-            <div class="product-card">
-                <img src="images/swimming-pool.jpg" alt="Swimming Pool Accessories">
-                <h3>Swimming Pools & Accessories</h3>
-                <p>Complete pool installation, filters, pumps, vacuum heads, skimmers, ladders, steam baths, and Jacuzzis.</p>
-            </div>
-
-            <div class="product-card">
-                <img src="images/upvc-pipe.jpg" alt="uPVC Column Pipes">
-                <h3>uPVC Column Pipes & Accessories</h3>
-                <p>High-strength drop pipes for submersible pumps, inverter TIG welding plants, and custom electrical control panels.</p>
+                <img src="images/mist-system.jpg" alt="Mist System">
+                <h3>1500 PSI High-Pressure Mist</h3>
+                <p>Outdoor cooling systems that reduce summer temperatures by up to 30 degrees for commercial and residential spaces.</p>
             </div>
 
         </div>
@@ -358,57 +592,86 @@
 
     <!-- Services Section -->
     <section id="services" class="section">
-        <h2>Services Offered</h2>
+        <h2 class="section-title">Our Specialized Services</h2>
+        <p class="section-subtitle">Complete end-to-end technical support and solutions</p>
         <div class="services-list">
             <div class="service-item">
+                <i class="fa-solid fa-tools"></i>
                 <h3>Custom Installation</h3>
-                <p>Professional underground sprinkler & irrigation system setup.</p>
+                <p>Professional underground sprinkler and automated irrigation system setup for commercial and agricultural land.</p>
             </div>
             <div class="service-item">
-                <h3>System Upgrades & Repair</h3>
-                <p>Installing rain sensors, upgrading controllers, and adding sprinkler heads.</p>
+                <i class="fa-solid fa-wrench"></i>
+                <h3>Upgrades & Maintenance</h3>
+                <p>Installing rain sensors, upgrading digital controllers, repairing pumps, and adding specialized sprinkler heads.</p>
             </div>
             <div class="service-item">
-                <h3>Industrial Cooling & Humidification</h3>
-                <p>Advisory, design, supply, installation, and maintenance.</p>
+                <i class="fa-solid fa-fan"></i>
+                <h3>Cooling & Humidification</h3>
+                <p>Complete advisory, design, supply, installation, and maintenance for industrial cooling and mist systems.</p>
             </div>
         </div>
     </section>
 
-    <!-- Clients Section -->
+    <!-- Valued Clients Section -->
     <section id="clients" class="section bg-light">
-        <h2>Our Valued Clients</h2>
-        <p class="subtitle">Trusted by Top Public, Private & Government Organizations Across Pakistan</p>
+        <h2 class="section-title">Our Trusted Clients</h2>
+        <p class="section-subtitle">Partnering with top public, private, and government sector organizations</p>
         <div class="clients-grid">
             <div class="client-category">
+                <i class="fa-solid fa-hotel"></i>
                 <h4>Hospitality</h4>
                 <p>Pearl Continental (Lahore/Multan), Hotel One, Avari Lahore</p>
             </div>
             <div class="client-category">
+                <i class="fa-solid fa-hospital"></i>
                 <h4>Healthcare & Education</h4>
-                <p>Shaukat Khanum Hospital, Surgimed Hospital, LMDC, LGS, Akhuwat College</p>
+                <p>Shaukat Khanum, Surgimed Hospital, LMDC, LGS, Akhuwat College</p>
             </div>
             <div class="client-category">
-                <h4>Corporate & Industrial</h4>
-                <p>Bahria Town, Diamond Foam, Master Paints, Mughal Steel, Mayfair, Azgard 9, Highnoon</p>
+                <i class="fa-solid fa-building"></i>
+                <h4>Corporate Sector</h4>
+                <p>Bahria Town, Diamond Foam, Master Paints, Mughal Steel, Highnoon</p>
             </div>
             <div class="client-category">
-                <h4>Government & Defence</h4>
+                <i class="fa-solid fa-shield-halved"></i>
+                <h4>Govt & Defence</h4>
                 <p>GHQ Rawalpindi, Pakistan Rangers, ASF, Atomic Energy Commission</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact & Footer -->
+    <!-- Footer & Contact Section -->
     <footer id="contact">
         <div class="footer-container">
-            <div class="footer-info">
-                <h3>Contact Us</h3>
-                <p><strong>Address:</strong> 128, Chowk Dalgiran, Brandreth Road, Lahore, Pakistan</p>
-                <p><strong>Phone:</strong> +92 323 3330444 | +92 300 8409349 | +92 300 4257578</p>
-                <p><strong>Landline:</strong> 042 37225218 | 042 37224467</p>
-                <p><strong>Email:</strong> hello@daskatubewell.com</p>
-                <p><strong>Website:</strong> www.daskaind.com | www.daskatubewell.com</p>
+            <div class="footer-col">
+                <h3>Daska Group</h3>
+                <p>Delivering high-grade industrial water pumps, deep well turbine systems, and modern irrigation solutions since 1965.</p>
+                <div class="footer-socials">
+                    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="https://youtube.com" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://wa.me/923233330444" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Valued Clients</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 128, Chowk Dalgiran, Brandreth Road, Lahore, Pakistan</p>
+                <p><i class="fa-solid fa-phone"></i> +92 323 3330444</p>
+                <p><i class="fa-solid fa-mobile-screen"></i> +92 300 8409349 / +92 300 4257578</p>
+                <p><i class="fa-solid fa-envelope"></i> hello@daskatubewell.com</p>
+                <p><i class="fa-solid fa-globe"></i> www.daskaind.com</p>
             </div>
         </div>
         <div class="footer-bottom">
